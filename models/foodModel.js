@@ -31,9 +31,11 @@ const SaladSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// remember to update in postman at some point to check the dif between chz and meat options
 const MeatAndCheeseSchema = new mongoose.Schema(
   {
     itemName: String,
+    meat: Boolean,
     price: { type: mongoose.Types.Decimal128 },
   },
   { timestamps: true }
