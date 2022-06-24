@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const Menu = require("../models/foodModel.js");
+const Updates = require("../models/homeModel.js");
 
 // config
 const router = express.Router();
@@ -11,58 +11,58 @@ router.use(express.json());
 router.use(cors());
 router.use(express.urlencoded({ extended: false }));
 
-// post salad data
+// post Updates data
 router.post("/", async (req, res) => {
-  const salad = new Menu.Salad(req.body);
+  const updates = new Updates(req.body);
   try {
-    await salad.save();
-    res.status(201).send({ salad });
-    console.log("Salad created!");
+    await updates.save();
+    res.status(201).send({ updates });
+    console.log("Updates created!");
   } catch (err) {
     res.status(400).send(err);
-    console.log("Could not Create Salad");
+    console.log("Could not Create Updates");
   }
 });
 
-// get salad data
+// get sandwich data
 router.get("/", (req, res) => {
-  Menu.Salad.find({}, (err, foundSalad) => {
+  Updates.find({}, (err, foundUpdates) => {
     if (err) {
       res.status(400).send(err);
-      console.log("Error getting all Salads");
+      console.log("Error getting all Updates");
     } else {
-      res.status(200).json(foundSalad);
-      console.log("Got all Salads!");
+      res.status(200).json(foundUpdates);
+      console.log("Got all Updates!");
     }
   });
 });
 
-// delete salad data
+// delete sandwich data
 router.delete("/:id", async (req, res) => {
-  Menu.Salad.findByIdAndRemove(
+  Updates.findByIdAndRemove(
     req.params.id,
     { new: true },
-    (err, deletedSalad) => {
+    (err, deletedUpdates) => {
       if (err) {
         res.status(400).send(err);
-        console.log("Could not delete Salad");
+        console.log("Could not delete Updates");
       } else {
-        res.status(200).send(deletedSalad);
-        console.log("Salad deleted!");
+        res.status(200).send({ deletedUpdates });
+        console.log("Updates deleted!");
       }
     }
   );
 });
 
-// update salad data
+// update sandwich data
 router.put("/:id", async (req, res) => {
   try {
-    Menu.Salad.findByIdAndUpdate(
+    Updates.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true },
-      (err, updatedSalad) => {
-        res.json(updatedSalad);
+      (err, updatedUpdates) => {
+        res.json(updatedUpdates);
       }
     );
   } catch (err) {

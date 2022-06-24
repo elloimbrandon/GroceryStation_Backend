@@ -9,15 +9,19 @@
 // - validator / validator
 
 // *** Things To Remember ***
+// Marty's email - grocerystationaz@yahoo.com
 // keep secret in mind when creating tokens
 
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const env = require("dotenv").config({ path: ".env" });
-// const groceryStationController = require("./controllers/groceryStation"); have be updates route for home page?
 const userController = require("./controllers/user"); // user page, marty and alvin only.
 const sandwichController = require("./controllers/sandwiches");
+const saladController = require("./controllers/salads");
+const breakfastController = require("./controllers/breakfast");
+const coldcutscheeseController = require("./controllers/meatandcheese");
+const homeController = require("./controllers/home");
 
 const app = express();
 
@@ -57,6 +61,15 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 
 // makes a /sandwiches route
 app.use("/sandwiches", sandwichController);
+// makes a /salads route
+app.use("/salads", saladController);
+// makes a /breakfast route
+app.use("/breakfast", breakfastController);
+// makes a /coldcutscheese route
+app.use("/coldcutscheese", coldcutscheeseController);
+
+// makes a /home route
+app.use("/home", homeController);
 
 // makes a /users route
 app.use("/users", userController);

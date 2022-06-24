@@ -35,7 +35,6 @@ const MeatAndCheeseSchema = new mongoose.Schema(
   {
     itemName: String,
     price: { type: mongoose.Types.Decimal128 },
-    image: String,
   },
   { timestamps: true }
 );

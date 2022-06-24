@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 
-// store model
 const Menu = require("../models/foodModel.js");
 
 // seed data for testing
