@@ -76,6 +76,7 @@ router.put("/:id", async (req, res) => {
 // seed data
 
 // updates seed data
+
 // Updates.create(updateSeed, (err, data) => {
 //   if (err) console.log(err.message);
 //   console.log("Added provided updates data....");

@@ -7,7 +7,7 @@ const Menu = require("../models/foodModel.js");
 const router = express.Router();
 
 // seed data for testing
-const meatAdnCheeseSeed = require("../seed-data/meatAndCheeseSeed.js");
+const meatAndCheeseSeed = require("../seed-data/meatAndCheeseSeed.js");
 
 // middle-ware
 router.use(express.json());
@@ -76,6 +76,7 @@ router.put("/:id", async (req, res) => {
 // seed data
 
 // deli seed data
+
 // Menu.ColdCutAndCheese.create(meatAndCheeseSeed, (err, data) => {
 //   if (err) console.log(err.message);
 //   console.log("Added provided Deli Data data....");
