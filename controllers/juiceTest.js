@@ -15,16 +15,22 @@ router.use(cors());
 router.use(express.urlencoded({ extended: false }));
 
 // post sandwich data
-router.post("/", async (req, res) => {
-  const juice = new Juice(req.body);
-  try {
-    await juice.save();
-    res.status(201).send({ juice });
-    console.log("juice created!");
-  } catch (err) {
-    res.status(400).send(err);
-    console.log("Could not Create juice");
-  }
+// router.post("/", async (req, res) => {
+//   const juice = new Juice(req.body);
+//   try {
+//     await juice.save();
+//     res.status(201).send({ juice });
+//     console.log("juice created!");
+//   } catch (err) {
+//     res.status(400).send(err);
+//     console.log("Could not Create juice");
+//   }
+// });
+
+router.post("/", (req, res) => {
+  Juice.create(req.body, (err, createdJuice) => {
+    res.json(createdJuice);
+  });
 });
 
 // get sandwich data
