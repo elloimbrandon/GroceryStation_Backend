@@ -22,6 +22,7 @@ const saladController = require("./controllers/salads");
 const breakfastController = require("./controllers/breakfast");
 const coldcutscheeseController = require("./controllers/meatandcheese");
 const homeController = require("./controllers/home");
+const juiceController = require("./controllers/juiceTest");
 
 const app = express();
 
@@ -73,5 +74,8 @@ app.use("/home", homeController);
 
 // makes a /users route
 app.use("/users", userController);
+
+// juice test model
+app.use("/juice", juiceController);
 
 app.listen(PORT, () => console.log("Listening on port:", PORT));
