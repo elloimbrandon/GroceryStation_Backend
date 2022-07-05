@@ -22,7 +22,6 @@ const saladController = require("./controllers/salads");
 const breakfastController = require("./controllers/breakfast");
 const coldcutscheeseController = require("./controllers/meatandcheese");
 const homeController = require("./controllers/home");
-const juiceController = require("./controllers/juiceTest");
 
 const app = express();
 
