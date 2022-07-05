@@ -6,6 +6,9 @@ const Updates = require("../models/homeModel.js");
 // config
 const router = express.Router();
 
+// seed data for testing
+const updateSeed = require("../seed-data/updatesSeed.js");
+
 // middle-ware
 router.use(express.json());
 router.use(cors());
@@ -69,5 +72,13 @@ router.put("/:id", async (req, res) => {
     res.status(400).send(err);
   }
 });
+
+// seed data
+
+// updates seed data
+// Updates.create(updateSeed, (err, data) => {
+//   if (err) console.log(err.message);
+//   console.log("Added provided updates data....");
+// });
 
 module.exports = router;

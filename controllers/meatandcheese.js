@@ -6,6 +6,9 @@ const Menu = require("../models/foodModel.js");
 // config
 const router = express.Router();
 
+// seed data for testing
+const meatAdnCheeseSeed = require("../seed-data/meatAndCheeseSeed.js");
+
 // middle-ware
 router.use(express.json());
 router.use(cors());
@@ -69,5 +72,13 @@ router.put("/:id", async (req, res) => {
     res.status(400).send(err);
   }
 });
+
+// seed data
+
+// deli seed data
+// Menu.ColdCutAndCheese.create(meatAndCheeseSeed, (err, data) => {
+//   if (err) console.log(err.message);
+//   console.log("Added provided Deli Data data....");
+// });
 
 module.exports = router;

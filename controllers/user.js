@@ -6,6 +6,9 @@ const User = require("../models/userModel");
 // config
 const router = express.Router();
 
+// seed data for testing
+const userSeed = require("../seed-data/userSeed.js");
+
 // middle-ware
 router.use(express.json());
 router.use(cors());
@@ -53,6 +56,14 @@ router.delete("/delete_users", (req, res) => {
     res.json("Deleted user sub db!");
   });
 });
+
+// seed data
+
+// user seed data
+// User.create(userSeed, (err, data) => {
+//   if (err) console.log(err.message);
+//   console.log("Added provided Sandwich data....");
+// });
 
 // export to server
 module.exports = router;

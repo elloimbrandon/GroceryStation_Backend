@@ -6,6 +6,9 @@ const Menu = require("../models/foodModel.js");
 // config
 const router = express.Router();
 
+// seed data for testing
+const breakfastSeed = require("../seed-data/breakfastSeed.js");
+
 // middle-ware
 router.use(express.json());
 router.use(cors());
@@ -69,5 +72,13 @@ router.put("/:id", async (req, res) => {
     res.status(400).send(err);
   }
 });
+
+// seed data
+
+// breakfast seed data
+// Menu.Breakfast.create(breakfastSeed, (err, data) => {
+//   if (err) console.log(err.message);
+//   console.log("Added provided Breakfast data....");
+// });
 
 module.exports = router;

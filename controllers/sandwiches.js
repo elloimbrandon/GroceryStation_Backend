@@ -4,7 +4,7 @@ const cors = require("cors");
 const Menu = require("../models/foodModel.js");
 
 // seed data for testing
-// const sandwichSeed = require("../models/sandwichSeed.js");
+const sandwichSeed = require("../seed-data/sandwichSeed.js");
 
 // config
 const router = express.Router();
@@ -72,5 +72,13 @@ router.put("/:id", async (req, res) => {
     res.status(400).send(err);
   }
 });
+
+// seed data
+
+// sandwich seed data
+// Menu.Sandwich.create(sandwichSeed, (err, data) => {
+//   if (err) console.log(err.message);
+//   console.log("Added provided Sandwich data....");
+// });
 
 module.exports = router;
